@@ -22,8 +22,12 @@ try:
     data, addr = sock.recvfrom(1024)
 except ValueError as message_error:
     print(message_error)
-data = data.decode("utf-8")
-print("Data received : ",data)
+except TimeoutError:
+    print("Pas de reponse du serveur")
+    data = None
+if data is not None:
+    data = data.decode("utf-8")
+    print("Data received : ",data)
 
 # Fermeture du socket
 sock.close()
