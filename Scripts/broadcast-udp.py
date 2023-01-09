@@ -18,6 +18,13 @@ sock.sendto(b'Message de broadcast !', destination)
 
 print("Broadcast envoyé à " + str(destination))
 
+try:
+    data, addr = sock.recvfrom(1024)
+except ValueError as message_error:
+    print(message_error)
+data = data.decode("utf-8")
+print("Data received : ",data)
+
 # Fermeture du socket
 sock.close()
 input("Fin du programme\n ")
