@@ -16,9 +16,10 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 destination = ('192.168.2.255', port)
 
 # Envoi du message de broadcast
-sock.sendto(bytes("Message de broadcast !",'utf-8'), destination)
+# sock.sendto(bytes("conf\n",'utf-8'), destination)
+sock.sendto(bytes("yaqui?",'utf-8'), destination)
 
-print("Broadcast envoyé à " + str(destination))
+#print("Broadcast envoyé à " + str(destination))
 
 # Boucle de 5 seconde pour récupérer des données de plusieurs clients
 t_end = time() + 5
@@ -35,7 +36,7 @@ while time() < t_end:
     if data is not None:
         data_received = True
         data = data.decode("utf-8")
-        print("Data received : ",data)
+        print("Data received : "+data+" from : "+str(addr))
 
 # Fermeture du socket
 sock.close()
