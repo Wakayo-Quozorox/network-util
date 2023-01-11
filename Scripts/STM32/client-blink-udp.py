@@ -5,7 +5,8 @@ from time import sleep
 running = threading.Event()
 
 host = input("Entrez l'adresse IP cible sous la forme 192.168.1.20 :\n")
-port = int(input("Entrez le port cible sous la forme 8888 :\n"))
+#port = int(input("Entrez le port cible sous la forme 8888 :\n"))
+port = 6000
 message = input("Entrez la donnee string a envoyer : ")
 v_timeout = 5
 v_loop_delay = float(input("Entrez la periode de clignotement : "))
